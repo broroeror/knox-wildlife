@@ -11,8 +11,12 @@
 -- up on one map farm in a hundred may as well not exist. Eleven to one puts
 -- cattle where they belong while leaving sheep as a real but uncommon find.
 
-KnoxWildlife = KnoxWildlife or {}
-local KW = KnoxWildlife
+KnoxLife = KnoxLife or {}
+-- Compatibility alias. The framework was called KnoxWildlife before it grew a
+-- name that does not promise fur, and third-party code may still say so. Same
+-- table either way, and idempotent whatever order these files load in.
+KnoxWildlife = KnoxLife
+local KW = KnoxLife
 
 -- chance is a weight, not a percentage: the game sums every entry and rolls
 -- across the total, so these only matter relative to each other.

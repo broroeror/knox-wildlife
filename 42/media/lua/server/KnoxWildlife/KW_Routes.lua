@@ -29,8 +29,12 @@
 -- tagged for a species, so every group walks toward the same few spots. That
 -- convergence is a second, quieter cause of the blobs.
 
-KnoxWildlife = KnoxWildlife or {}
-local KW = KnoxWildlife
+KnoxLife = KnoxLife or {}
+-- Compatibility alias. The framework was called KnoxWildlife before it grew a
+-- name that does not promise fur, and third-party code may still say so. Same
+-- table either way, and idempotent whatever order these files load in.
+KnoxWildlife = KnoxLife
+local KW = KnoxLife
 
 local ZONE_TYPE = "Animal"
 local Z_LEVEL = 0

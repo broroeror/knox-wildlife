@@ -61,10 +61,15 @@ the population.
 
 ## Adding your own species
 
-Species are plugins; the routes are the platform. A complete species addon is
-about sixty lines of Lua — no route data, no map analysis, no generator.
-**[API.md](API.md)** documents the whole contract; a fully commented example
-you can copy lives in
+This mod is built on **Knox Life** (mod id `KnoxLife`) — the spawn and
+population framework that ships inside it: baked migration routes, a
+density-driven allocator, and carrying-capacity population dynamics. It is
+documented and open for anyone to build on, wildlife or otherwise.
+
+A complete species addon is about sixty lines of Lua — no route data, no map
+analysis, no generator. If what you want to spawn isn't an animal, the
+population model is generic and public. **[API.md](API.md)** documents the whole
+contract; a fully commented example lives in
 [examples/KnoxWildlifeOpossum](examples/KnoxWildlifeOpossum).
 
 ## Installing

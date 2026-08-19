@@ -37,8 +37,12 @@
 -- That is both more correct than ticking only where somebody happens to be
 -- standing, and far cheaper than ticking 4,065 cells forever.
 
-KnoxWildlife = KnoxWildlife or {}
-local KW = KnoxWildlife
+KnoxLife = KnoxLife or {}
+-- Compatibility alias. The framework was called KnoxWildlife before it grew a
+-- name that does not promise fur, and third-party code may still say so. Same
+-- table either way, and idempotent whatever order these files load in.
+KnoxWildlife = KnoxLife
+local KW = KnoxLife
 
 KW.POP = {
     -- Per in-game hour. 0.1/day takes a half-empty cell to about 95% of what it
@@ -91,7 +95,7 @@ end
 local cellOf = KW.cellOf
 
 local function store()
-    local md = ModData.getOrCreate("KnoxWildlife_pop")
+    local md = ModData.getOrCreate("KnoxLife_pop")
     md.cells = md.cells or {}
     return md.cells
 end

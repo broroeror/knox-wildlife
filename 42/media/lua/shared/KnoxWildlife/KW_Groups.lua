@@ -10,8 +10,12 @@
 -- by exactly the same code path. If it works for a coyote addon it works for
 -- vanilla deer, because there is only one path.
 
-KnoxWildlife = KnoxWildlife or {}
-local KW = KnoxWildlife
+KnoxLife = KnoxLife or {}
+-- Compatibility alias. The framework was called KnoxWildlife before it grew a
+-- name that does not promise fur, and third-party code may still say so. Same
+-- table either way, and idempotent whatever order these files load in.
+KnoxWildlife = KnoxLife
+local KW = KnoxLife
 
 -- Timings and trace chances shared by every group unless it overrides them.
 -- These are the vanilla deer values; they read as "a wild animal that eats,

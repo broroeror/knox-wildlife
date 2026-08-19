@@ -17,8 +17,12 @@
 -- own registered routes and never involve the zone spawner. The animals are
 -- ordinary animals afterwards; nothing about them is special-cased.
 
-KnoxWildlife = KnoxWildlife or {}
-local KW = KnoxWildlife
+KnoxLife = KnoxLife or {}
+-- Compatibility alias. The framework was called KnoxWildlife before it grew a
+-- name that does not promise fur, and third-party code may still say so. Same
+-- table either way, and idempotent whatever order these files load in.
+KnoxWildlife = KnoxLife
+local KW = KnoxLife
 
 -- Only ever seed ground that is actually loaded. addAnimal needs a real square,
 -- and an animal placed into an unloaded chunk is at best wasted and at worst a
@@ -30,7 +34,7 @@ KW.RESEED_RADIUS = 120
 KW.RESEED_MAX_GROUPS = 12
 
 local function seededSet()
-    local md = ModData.getOrCreate("KnoxWildlife_seeded")
+    local md = ModData.getOrCreate("KnoxLife_seeded")
     md.routes = md.routes or {}
     return md.routes
 end

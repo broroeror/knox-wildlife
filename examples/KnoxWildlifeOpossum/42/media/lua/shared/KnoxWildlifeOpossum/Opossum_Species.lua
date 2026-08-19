@@ -1,4 +1,4 @@
--- Knox Wildlife: Opossums -- example addon.
+-- Knox Wildlife: Opossums -- example addon for the Knox Life API.
 --
 -- This is the whole addon. There is no route data, no generator, no map
 -- analysis: the base mod owns hundreds of migration routes across the map, and
@@ -10,11 +10,11 @@
 -- squirrel) are working references: each is a new mesh rigged onto a vanilla
 -- animal skeleton, keeping the donor's clip names, exported as a single .glb.
 
--- Fail politely rather than erroring if the base mod is missing or too old.
--- mod.info's `require=KnoxWildlife` should prevent this, but a user can always
+-- Fail politely rather than erroring if the framework is missing or too old.
+-- mod.info's `require=KnoxLife` should prevent this, but a user can always
 -- disable the base mod and leave the addon enabled.
 if not KnoxWildlife or (KnoxWildlife.API_VERSION or 0) < 1 then
-    print("[KnoxWildlifeOpossum] Knox Wildlife not found (or too old); "
+    print("[KnoxWildlifeOpossum] Knox Life not found (or too old); "
         .. "this addon needs API_VERSION 1. Not loading.")
     return
 end

@@ -1,10 +1,20 @@
-# Knox Wildlife — Modder API (API_VERSION 1)
+# Knox Life — Modder API (API_VERSION 1)
 
-Species are plugins; the routes are the platform. The base mod ships the route
-budget, the allocator, the population model and the debug tooling; your addon
-ships a species definition and, optionally, its own ground. The base mod's own
-four species register through this exact API — there is one code path, and you
-are on it.
+**Knox Life** is the spawn and population framework under the Knox mods: baked
+migration routes, a density-driven allocator, carrying-capacity population
+dynamics, and the debug tooling to see what it did. Knox Wildlife is the first
+thing built on it, not the framework itself — the mod id is `KnoxLife` and the
+Lua global is `KnoxLife`.
+
+Species are plugins; the routes are the platform. The framework ships the route
+budget, the allocator, the population model and the tooling; your addon ships a
+species definition and, optionally, its own ground. The four wildlife species
+register through this exact API — there is one code path, and you are on it.
+
+If what you want to place isn't an animal — a faction, a camp, a patrol — skip
+to [section 6](#6-building-something-thats-not-an-animal); `registerSpecies`
+writes into Project Zomboid's animal system and won't serve you, but the
+population model underneath is generic and public.
 
 A complete species addon is about sixty lines of Lua. A fully commented one
 lives in [`examples/KnoxWildlifeOpossum`](examples/KnoxWildlifeOpossum); a
@@ -15,7 +25,7 @@ shipping one with art is the
 
 ## 1. The compatibility contract
 
-**`require=KnoxWildlife` in your mod.info.** This makes your shared files load
+**`require=KnoxLife` in your mod.info.** This makes your shared files load
 after the base mod's, which is what makes everything below callable at your
 file scope.
 
@@ -23,12 +33,16 @@ file scope.
 (all five shipping addons carry it):
 
 ```lua
-if not KnoxWildlife or (KnoxWildlife.API_VERSION or 0) < 1 then
-    print("[MyAddon] needs Knox Wildlife API_VERSION 1. Not loading.")
+if not KnoxLife or (KnoxLife.API_VERSION or 0) < 1 then
+    print("[MyAddon] needs Knox Life API_VERSION 1. Not loading.")
     return
 end
-local KW = KnoxWildlife
+local KW = KnoxLife
 ```
+
+`KnoxWildlife` still works as an alias for `KnoxLife` — same table — because the
+framework was named after its first job before it grew past it. New code should
+say `KnoxLife`.
 
 **Versioning policy:** `API_VERSION` moves only on breaking changes to the
 functions documented here. Additive changes — new functions, new optional
@@ -155,8 +169,8 @@ private tool that reads the game's biome maps), commit the generated Lua, and
 feature-detect the call in that file:
 
 ```lua
-if KnoxWildlife and KnoxWildlife.registerRoutePool then
-    KnoxWildlife.registerRoutePool("mymod_opossum", MyMod.Routes)
+if KnoxLife and KnoxLife.registerRoutePool then
+    KnoxLife.registerRoutePool("mymod_opossum", MyMod.Routes)
 end
 ```
 
@@ -236,7 +250,7 @@ calling internals.
 
 ---
 
-## 6. Building something that isn't an animal
+## 6. Building something that's not an animal
 
 `registerSpecies` writes into `MigrationGroupDefinitions`, which is Project
 Zomboid's **animal** system — so a faction, a camp, or anything spawned through
@@ -247,7 +261,7 @@ generic. If you have your own entities and your own way of placing them, these
 four give you carrying-capacity simulation for free:
 
 ```lua
-local KW = KnoxWildlife
+local KW = KnoxLife
 
 local cx, cy = KW.cellOf(px, py)        -- world coords -> population cell
 local k      = 12                        -- YOUR carrying capacity for this cell

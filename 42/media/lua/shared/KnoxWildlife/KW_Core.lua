@@ -5,15 +5,19 @@
 -- MigrationGroupDefinitions.lua wholesale is what makes the existing wildlife
 -- mods collide with each other and with future game patches.
 
-KnoxWildlife = KnoxWildlife or {}
-local KW = KnoxWildlife
+KnoxLife = KnoxLife or {}
+-- Compatibility alias. The framework was called KnoxWildlife before it grew a
+-- name that does not promise fur, and third-party code may still say so. Same
+-- table either way, and idempotent whatever order these files load in.
+KnoxWildlife = KnoxLife
+local KW = KnoxLife
 
 KW.VERSION = "0.2.0"
 
 -- Addon contract version. Bumped only for a BREAKING change to the functions
 -- below; additive changes leave it alone. An addon can refuse to load politely:
 --
---     if not KnoxWildlife or (KnoxWildlife.API_VERSION or 0) < 1 then return end
+--     if not KnoxLife or (KnoxLife.API_VERSION or 0) < 1 then return end
 --
 KW.API_VERSION = 1
 
@@ -67,7 +71,7 @@ KW.SPECIES_MIX = {
 KW.GROUP_SCALE = { 0.5, 0.75, 1.0, 1.5, 2.25 }
 
 function KW.log(msg)
-    print("[KnoxWildlife] " .. tostring(msg))
+    print("[KnoxLife] " .. tostring(msg))
 end
 
 -- Both patches are hooked to three separate events, because the sandbox values
@@ -84,7 +88,7 @@ end
 -- SandboxVars is not populated when shared files first run, so every read goes
 -- through here and falls back to the default until the world is up.
 local function sandbox()
-    return SandboxVars and SandboxVars.KnoxWildlife or nil
+    return SandboxVars and SandboxVars.KnoxLife or nil
 end
 
 function KW.getOption(name, fallback)
@@ -309,13 +313,13 @@ end
 -- right for the four species we ship and useless to an addon: its options live
 -- under its own mod id. So a dotted name is read from there instead:
 --
---     enabledOption = "Fox"                        SandboxVars.KnoxWildlife.Fox
+--     enabledOption = "Fox"                        SandboxVars.KnoxLife.Fox
 --     enabledOption = "KnoxWildlifeCritters.Fox"   its own page
 --
 -- Plain names keep working, so nothing written against API 1 changes.
 --- Read a sandbox option that may live on another mod's page.
 --
---     "WildTurkey"                  -> SandboxVars.KnoxWildlife.WildTurkey
+--     "WildTurkey"                  -> SandboxVars.KnoxLife.WildTurkey
 --     "KnoxWildlifeFox.FoxRoutes"   -> SandboxVars.KnoxWildlifeFox.FoxRoutes
 --
 -- The dotted form is what lets a species mod keep its settings on its own page
@@ -410,7 +414,7 @@ end
 --- Work out which routes each species gets, before any of them are registered.
 --
 -- Returns a list of { species, pool, first, count }, where `first` is a 1-based
--- index into KnoxWildlife.Routes[pool]. Slices of the same pool never overlap,
+-- index into KnoxLife.Routes[pool]. Slices of the same pool never overlap,
 -- so two species sharing a habitat cannot both be handed the same geometry and
 -- register two zones on top of each other.
 --

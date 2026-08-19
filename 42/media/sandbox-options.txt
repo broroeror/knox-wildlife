@@ -1,145 +1,145 @@
 VERSION = 1,
 
-option KnoxWildlife.RouteDensity
+option KnoxLife.RouteDensity
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlife,
-    translation = KnoxWildlife_RouteDensity,
-    valueTranslation = KnoxWildlife_RouteDensity,
+    translation = KnoxLife_RouteDensity,
+    valueTranslation = KnoxLife_RouteDensity,
 }
-option KnoxWildlife.SpeciesMix
+option KnoxLife.SpeciesMix
 {
     type = enum,
     numValues = 3,
     default = 1,
     page = KnoxWildlife,
-    translation = KnoxWildlife_SpeciesMix,
-    valueTranslation = KnoxWildlife_SpeciesMix,
+    translation = KnoxLife_SpeciesMix,
+    valueTranslation = KnoxLife_SpeciesMix,
 }
-option KnoxWildlife.GroupSize
+option KnoxLife.GroupSize
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlife,
-    translation = KnoxWildlife_GroupSize,
-    valueTranslation = KnoxWildlife_GroupSize,
+    translation = KnoxLife_GroupSize,
+    valueTranslation = KnoxLife_GroupSize,
 }
-option KnoxWildlife.WildlifeRecovery
+option KnoxLife.WildlifeRecovery
 {
     type = boolean,
     default = true,
     page = KnoxWildlife,
-    translation = KnoxWildlife_WildlifeRecovery,
+    translation = KnoxLife_WildlifeRecovery,
 }
-option KnoxWildlife.RecoveryRate
+option KnoxLife.RecoveryRate
 {
     type = enum,
     numValues = 3,
     default = 2,
     page = KnoxWildlife,
-    translation = KnoxWildlife_RecoveryRate,
-    valueTranslation = KnoxWildlife_RecoveryRate,
+    translation = KnoxLife_RecoveryRate,
+    valueTranslation = KnoxLife_RecoveryRate,
 }
-option KnoxWildlife.RebalanceFarms
+option KnoxLife.RebalanceFarms
 {
     type = boolean,
     default = true,
     page = KnoxWildlife,
-    translation = KnoxWildlife_RebalanceFarms,
+    translation = KnoxLife_RebalanceFarms,
 }
-option KnoxWildlife.AdminTools
+option KnoxLife.AdminTools
 {
     type = boolean,
     default = true,
     page = KnoxWildlife,
-    translation = KnoxWildlife_AdminTools,
+    translation = KnoxLife_AdminTools,
 }
-option KnoxWildlife.DeerRoutes
+option KnoxLife.DeerRoutes
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_DeerRoutes,
-    valueTranslation = KnoxWildlife_SpeciesScale,
+    translation = KnoxLife_DeerRoutes,
+    valueTranslation = KnoxLife_SpeciesScale,
 }
-option KnoxWildlife.DeerGroupSize
+option KnoxLife.DeerGroupSize
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_DeerGroupSize,
-    valueTranslation = KnoxWildlife_SpeciesScale,
+    translation = KnoxLife_DeerGroupSize,
+    valueTranslation = KnoxLife_SpeciesScale,
 }
-option KnoxWildlife.RabbitRoutes
+option KnoxLife.RabbitRoutes
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_RabbitRoutes,
-    valueTranslation = KnoxWildlife_SpeciesScale,
+    translation = KnoxLife_RabbitRoutes,
+    valueTranslation = KnoxLife_SpeciesScale,
 }
-option KnoxWildlife.RabbitGroupSize
+option KnoxLife.RabbitGroupSize
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_RabbitGroupSize,
-    valueTranslation = KnoxWildlife_SpeciesScale,
+    translation = KnoxLife_RabbitGroupSize,
+    valueTranslation = KnoxLife_SpeciesScale,
 }
-option KnoxWildlife.WildTurkey
+option KnoxLife.WildTurkey
 {
     type = boolean,
     default = true,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_WildTurkey,
+    translation = KnoxLife_WildTurkey,
 }
-option KnoxWildlife.TurkeyRoutes
+option KnoxLife.TurkeyRoutes
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_TurkeyRoutes,
-    valueTranslation = KnoxWildlife_SpeciesScale,
+    translation = KnoxLife_TurkeyRoutes,
+    valueTranslation = KnoxLife_SpeciesScale,
 }
-option KnoxWildlife.TurkeyGroupSize
+option KnoxLife.TurkeyGroupSize
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_TurkeyGroupSize,
-    valueTranslation = KnoxWildlife_SpeciesScale,
+    translation = KnoxLife_TurkeyGroupSize,
+    valueTranslation = KnoxLife_SpeciesScale,
 }
-option KnoxWildlife.WildRaccoon
+option KnoxLife.WildRaccoon
 {
     type = boolean,
     default = true,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_WildRaccoon,
+    translation = KnoxLife_WildRaccoon,
 }
-option KnoxWildlife.RaccoonRoutes
+option KnoxLife.RaccoonRoutes
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_RaccoonRoutes,
-    valueTranslation = KnoxWildlife_SpeciesScale,
+    translation = KnoxLife_RaccoonRoutes,
+    valueTranslation = KnoxLife_SpeciesScale,
 }
-option KnoxWildlife.RaccoonGroupSize
+option KnoxLife.RaccoonGroupSize
 {
     type = enum,
     numValues = 5,
     default = 3,
     page = KnoxWildlifeAnimals,
-    translation = KnoxWildlife_RaccoonGroupSize,
-    valueTranslation = KnoxWildlife_SpeciesScale,
+    translation = KnoxLife_RaccoonGroupSize,
+    valueTranslation = KnoxLife_SpeciesScale,
 }

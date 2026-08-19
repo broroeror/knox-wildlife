@@ -16,8 +16,12 @@ require "ISUI/ISPanel"
 require "ISUI/ISButton"
 require "DebugUIs/DebugMenu/ISDebugMenu"
 
-KnoxWildlife = KnoxWildlife or {}
-local KW = KnoxWildlife
+KnoxLife = KnoxLife or {}
+-- Compatibility alias. The framework was called KnoxWildlife before it grew a
+-- name that does not promise fur, and third-party code may still say so. Same
+-- table either way, and idempotent whatever order these files load in.
+KnoxWildlife = KnoxLife
+local KW = KnoxLife
 
 KW.DebugUI = ISPanel:derive("KWDebugUI")
 local UI = KW.DebugUI
@@ -51,7 +55,7 @@ end
 local function say(msg)
     local p = getSpecificPlayer(0)
     if p and HaloTextHelper then HaloTextHelper.addGoodText(p, msg) end
-    print("[KnoxWildlife][debug] " .. tostring(msg))
+    print("[KnoxLife][debug] " .. tostring(msg))
 end
 
 -- What was actually registered, rather than what the settings asked for. The
@@ -60,26 +64,26 @@ end
 -- them, and nothing else in the game will tell you that happened.
 function UI.report()
     local L = KW.Locator
-    print("[KnoxWildlife][debug] ---- population report ----")
-    print(string.format("[KnoxWildlife][debug] version %s, api %s",
+    print("[KnoxLife][debug] ---- population report ----")
+    print(string.format("[KnoxLife][debug] version %s, api %s",
         tostring(KW.VERSION), tostring(KW.API_VERSION)))
     local plan = (L and L.plan and L.plan()) or {}
     if #plan == 0 then
-        print("[KnoxWildlife][debug] no routes registered yet")
+        print("[KnoxLife][debug] no routes registered yet")
     end
     local total = 0
     for _, part in ipairs(plan) do
         total = total + (part.count or 0)
-        print(string.format("[KnoxWildlife][debug]   %-14s pool=%-6s routes=%-5d asked=%-5d %s",
+        print(string.format("[KnoxLife][debug]   %-14s pool=%-6s routes=%-5d asked=%-5d %s",
             tostring(part.species), tostring(part.pool),
             part.count or 0, part.wanted or 0,
             (part.count or 0) < (part.wanted or 0) and "<- map could not supply" or ""))
     end
-    print(string.format("[KnoxWildlife][debug] %d species, %d routes total", #plan, total))
+    print(string.format("[KnoxLife][debug] %d species, %d routes total", #plan, total))
     for _, key in ipairs({"RouteDensity", "SpeciesMix", "GroupSize", "WildlifeRecovery",
                           "RecoveryRate", "WildTurkey", "WildRaccoon", "RebalanceFarms"}) do
-        print(string.format("[KnoxWildlife][debug]   setting %-18s = %s",
-            key, tostring(runtimeGet("KnoxWildlife", key, "<unset>"))))
+        print(string.format("[KnoxLife][debug]   setting %-18s = %s",
+            key, tostring(runtimeGet("KnoxLife", key, "<unset>"))))
     end
     say(string.format("Report printed: %d species, %d routes", #plan, total))
 end
