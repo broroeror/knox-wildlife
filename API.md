@@ -236,7 +236,54 @@ calling internals.
 
 ---
 
-## 6. The part the API cannot do for you: the animal
+## 6. Building something that isn't an animal
+
+`registerSpecies` writes into `MigrationGroupDefinitions`, which is Project
+Zomboid's **animal** system — so a faction, a camp, or anything spawned through
+some other mechanism cannot register through it, and should not try.
+
+What *is* reusable is the population model underneath, and it is deliberately
+generic. If you have your own entities and your own way of placing them, these
+four give you carrying-capacity simulation for free:
+
+```lua
+local KW = KnoxWildlife
+
+local cx, cy = KW.cellOf(px, py)        -- world coords -> population cell
+local k      = 12                        -- YOUR carrying capacity for this cell
+local n      = countMyThingsIn(cx, cy)   -- YOUR census; KW's counts animals only
+
+-- Logistic growth toward k, plus a small immigration term so a cell that hit
+-- zero can still recover. Scaled by the admin's Recovery Rate setting.
+local grown = KW.grow(n, k, hoursElapsed * KW.recoveryScale())
+placeMyThings(grown - n)
+```
+
+| Call | What it gives you |
+|---|---|
+| `KW.CELL` | the grid size the whole model is expressed in (tiles) |
+| `KW.cellOf(x, y) -> cx, cy` | world coordinates to population cell |
+| `KW.grow(n, k, hours) -> n'` | logistic growth with an immigration term |
+| `KW.recoveryScale() -> number` | the admin's Recovery Rate as a multiplier |
+
+`KW.capacityIn(cx, cy)` and `KW.censusIn(cx, cy)` are also public, but both are
+animal-specific: capacity is derived from KW's own registered species, and the
+census counts what `cell:getAnimals()` returns. Supply your own for anything
+else — that is usually a narrowing rather than an extension, because your thing
+probably has one population where wildlife has eight.
+
+Two constraints inherited from where this lives: it is **server-side** (nil
+during shared load, nil on a multiplayer client), and it is only meaningful once
+the world is up.
+
+If you want the habitat scoring as well — "where in this forest would something
+actually live" — that is baked offline into route data rather than computed at
+runtime. Ship your own pools through `registerRoutePool` (section 3) and the
+same machinery places them.
+
+---
+
+## 7. The part the API cannot do for you: the animal
 
 `registerSpecies` places and moves animals; it does not create them. Your
 `female` / `male` / `baby` names must exist in `AnimalDefinitions`, which means

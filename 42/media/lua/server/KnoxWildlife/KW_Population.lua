@@ -73,11 +73,22 @@ KW.POP = {
     MAX_PLACE_PER_VISIT = 6,
 }
 
-local CELL = 300
+-- The cell grid the whole population model is expressed in. PUBLIC on purpose:
+-- capacityIn, censusIn and settleCell all take cell coordinates, so without a
+-- way to turn world coordinates into them, every one of those is unreachable
+-- from outside this file -- which made the population model look public and
+-- behave private. An addon doing its own carrying-capacity simulation (a
+-- faction, a camp, anything that is not an animal) needs exactly these two.
+KW.CELL = 300
+local CELL = KW.CELL
 
-local function cellOf(x, y)
+--- World coordinates -> the population cell containing them.
+-- @return cx, cy
+function KW.cellOf(x, y)
     return math.floor(x / CELL), math.floor(y / CELL)
 end
+
+local cellOf = KW.cellOf
 
 local function store()
     local md = ModData.getOrCreate("KnoxWildlife_pop")
