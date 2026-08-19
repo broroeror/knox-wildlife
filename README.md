@@ -62,9 +62,10 @@ the population.
 ## Adding your own species
 
 Species are plugins; the routes are the platform. A complete species addon is
-about sixty lines of Lua — no route data, no map analysis, no generator. See
-[examples/KnoxWildlifeOpossum](examples/KnoxWildlifeOpossum) for a fully
-commented one you can copy.
+about sixty lines of Lua — no route data, no map analysis, no generator.
+**[API.md](API.md)** documents the whole contract; a fully commented example
+you can copy lives in
+[examples/KnoxWildlifeOpossum](examples/KnoxWildlifeOpossum).
 
 ## Installing
 

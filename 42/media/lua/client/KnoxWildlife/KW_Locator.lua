@@ -192,9 +192,13 @@ end
 local function mayUseTools()
     if isDebugEnabled and isDebugEnabled() then return true end
     if isClient and isClient() then
-        local admin = isAdmin and isAdmin()
-        local mod = getAccessLevel and getAccessLevel() == "moderator"
-        return (admin or mod) and true or false
+        -- Read the access level directly. The file-local isAdmin(player) above
+        -- lexically shadows vanilla's zero-arg global here, so calling it with
+        -- no argument returned false for every real admin -- the menu was
+        -- debug-mode-only on MP and nobody had told us.
+        local lvl = getAccessLevel and getAccessLevel() or ""
+        lvl = string.lower(tostring(lvl))
+        return lvl == "admin" or lvl == "moderator"
     end
     -- Singleplayer or the coop host. The fallback is what an existing save gets,
     -- since it has no stored value for an option that did not exist when it was

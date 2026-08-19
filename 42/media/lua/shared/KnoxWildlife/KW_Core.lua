@@ -507,6 +507,48 @@ function KW.registerRoutePool(name, pool)
             .. "exists and will not be replaced. Prefix yours with your mod id.")
         return false
     end
+    -- Validate the one invariant the engine dies without: every eat and sleep
+    -- leg must share an EXACT vertex with its route's follow leg, because
+    -- addJunctionsWithOtherZone matches points, not proximity. A leg that never
+    -- touches its follow line keeps a null junction list, and the pathfinder
+    -- dereferences it every tick -- roughly a thousand NullPointerExceptions a
+    -- minute, hours after this call returned "fine". Reject the pool loudly now
+    -- instead. (The private generator enforces this at bake time; hand-authored
+    -- pools had no guard at all until here.)
+    for ri, route in ipairs(pool) do
+        local f = route.follow
+        if type(f) ~= "table" or #f < 4 or #f % 2 ~= 0 then
+            KW.log(string.format("registerRoutePool('%s'): route %d has no usable "
+                .. "follow leg (need an even, >=4 flat list of x,y). Rejected.",
+                name, ri))
+            return false
+        end
+        local onFollow = {}
+        for i = 1, #f - 1, 2 do
+            onFollow[f[i] .. "," .. f[i + 1]] = true
+        end
+        for _, legName in ipairs({ "eat", "sleep" }) do
+            local leg = route[legName]
+            if leg ~= nil then
+                local touches = false
+                for i = 1, #leg - 1, 2 do
+                    if onFollow[leg[i] .. "," .. leg[i + 1]] then
+                        touches = true
+                        break
+                    end
+                end
+                if not touches then
+                    KW.log(string.format("registerRoutePool('%s'): route %d's %s "
+                        .. "leg shares no exact vertex with its follow leg. The "
+                        .. "engine joins zones by identical points; this route "
+                        .. "would NPE-storm at runtime. Rejected -- move one %s "
+                        .. "vertex onto the follow line.",
+                        name, ri, legName, legName))
+                    return false
+                end
+            end
+        end
+    end
     KW.Routes[name] = pool
     -- Routes that arrive from an addon are extra, not a share of the base mod's
     -- budget. See KW.allocateRoutes for why.
