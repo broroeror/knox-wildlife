@@ -1,0 +1,74 @@
+{
+    "Sandbox_KnoxWildlife": "Knox Wildlife",
+    "Sandbox_KnoxWildlife_tooltip": "Wild animal spawning tuned to 1990s rural Kentucky: many small family groups spread across the map instead of a few enormous herds.",
+
+    "Sandbox_KnoxWildlifeAnimals": "Knox Wildlife: Animals",
+    "Sandbox_KnoxWildlifeAnimals_tooltip": "Per-species settings. Each animal has its own target, so turning one off or doubling it does not take anything from the others. Add-on species appear here too.",
+
+    "Sandbox_KnoxWildlife_RouteDensity": "Wildlife density",
+    "Sandbox_KnoxWildlife_RouteDensity_tooltip": "The master dial for how many animals exist. Realistic places each species at its actual recorded 1990s Kentucky density, so deer, turkey and raccoon reach their true numbers. Rabbits and squirrels are the exception and stay below theirs, because the map has nowhere near enough of the habitat they need. Only takes effect on a new save.",
+    "Sandbox_KnoxWildlife_RouteDensity_option1": "1/4 realistic",
+    "Sandbox_KnoxWildlife_RouteDensity_option2": "1/2 realistic",
+    "Sandbox_KnoxWildlife_RouteDensity_option3": "Realistic - 1993 Kentucky",
+    "Sandbox_KnoxWildlife_RouteDensity_option4": "1.5x realistic",
+    "Sandbox_KnoxWildlife_RouteDensity_option5": "2x realistic",
+
+    "Sandbox_KnoxWildlife_SpeciesMix": "Species mix",
+    "Sandbox_KnoxWildlife_SpeciesMix_tooltip": "Whether deer get more than Kentucky actually had. This multiplies the DEER population only and changes nothing else. Realistic leaves every species at its true density, which means rabbits and squirrels vastly outnumber deer, because they did.",
+    "Sandbox_KnoxWildlife_SpeciesMix_option1": "Realistic - true populations",
+    "Sandbox_KnoxWildlife_SpeciesMix_option2": "Balanced - 2x deer",
+    "Sandbox_KnoxWildlife_SpeciesMix_option3": "Deer Country - 3.3x deer",
+
+    "Sandbox_KnoxWildlife_GroupSize": "Group size: all animals",
+    "Sandbox_KnoxWildlife_GroupSize_tooltip": "How large each family group is, for every species at once. This does NOT change how many animals exist. The number of groups is worked out by dividing the population by the group size, so bigger groups simply means fewer, rarer groups holding the same total. Use it to decide whether you meet animals often and in ones and twos, or seldom and in a crowd. Realistic keeps the vanilla family sizes: a few does with a buck, a warren of rabbits, a flock of turkeys.",
+    "Sandbox_KnoxWildlife_GroupSize_option1": "1/2x - smaller, more often",
+    "Sandbox_KnoxWildlife_GroupSize_option2": "3/4x",
+    "Sandbox_KnoxWildlife_GroupSize_option3": "Realistic - vanilla family sizes",
+    "Sandbox_KnoxWildlife_GroupSize_option4": "1.5x",
+    "Sandbox_KnoxWildlife_GroupSize_option5": "2.25x - bigger, more rarely",
+
+    "Sandbox_KnoxWildlife_WildlifeRecovery": "Recovery: let hunted-out land refill",
+    "Sandbox_KnoxWildlife_WildlifeRecovery_tooltip": "Lets hunted-out country slowly refill. The game spawns each area's animals exactly once and its off-screen animals cannot breed, so without this a valley you clear out stays empty for the rest of the save. Populations never rise above what the habitat supports, so this cannot overrun the map.",
+
+    "Sandbox_KnoxWildlife_RecoveryRate": "Recovery: how fast",
+    "Sandbox_KnoxWildlife_RecoveryRate_tooltip": "How fast wildlife comes back. Normal takes a half-empty area to nearly full in about four in-game weeks, and far longer where almost nothing is left, because a handful of survivors breed slowly. Overhunting is meant to be felt. Does nothing unless recovery is turned on above.",
+    "Sandbox_KnoxWildlife_RecoveryRate_option1": "Slow",
+    "Sandbox_KnoxWildlife_RecoveryRate_option2": "Normal - about 4 weeks",
+    "Sandbox_KnoxWildlife_RecoveryRate_option3": "Fast",
+
+    "Sandbox_KnoxWildlife_RebalanceFarms": "Farms: restock livestock realistically",
+    "Sandbox_KnoxWildlife_RebalanceFarms_tooltip": "Stocks farms the way 1990s Kentucky actually was: cattle on roughly half of all farms, in cow-calf herds of real size rather than the two or three head vanilla leaves in a field. Sheep stay rare, at about one farm in a hundred.",
+
+    "Sandbox_KnoxWildlife_AdminTools": "Admin and testing tools",
+    "Sandbox_KnoxWildlife_AdminTools_tooltip": "Adds a right-click menu that points an arrow at the nearest animal of each species, and can seed wildlife into ground the game has already processed. The same tools appear under Knox Wildlife in the debug menu. TURN THIS OFF if you want to find animals the hard way: an arrow to the nearest deer will spoil the tracking this mod exists to create. On a server it is admins and moderators only regardless of this setting.",
+
+    "Sandbox_KnoxWildlife_SpeciesScale_option1": "1/4x",
+    "Sandbox_KnoxWildlife_SpeciesScale_option2": "1/2x",
+    "Sandbox_KnoxWildlife_SpeciesScale_option3": "Normal",
+    "Sandbox_KnoxWildlife_SpeciesScale_option4": "1.5x",
+    "Sandbox_KnoxWildlife_SpeciesScale_option5": "2x",
+
+    "Sandbox_KnoxWildlife_DeerRoutes": "Deer: number of groups",
+    "Sandbox_KnoxWildlife_DeerRoutes_tooltip": "Whitetail deer. Multiplies this species' population, on top of Wildlife density. This is one of only three settings that changes how many animals actually exist, so it is the one to raise if you want more deer. Realistic is about 1,000 across the map, which is what 1993 Kentucky held at 11.4 per square mile.",
+    "Sandbox_KnoxWildlife_DeerGroupSize": "Deer: animals per group",
+    "Sandbox_KnoxWildlife_DeerGroupSize_tooltip": "Multiplies the size of each deer group, on top of Group size. This does NOT change how many deer exist: the group count is divided to match, so you meet the same animals gathered into fewer, larger herds.",
+
+    "Sandbox_KnoxWildlife_RabbitRoutes": "Rabbits: number of groups",
+    "Sandbox_KnoxWildlife_RabbitRoutes_tooltip": "Eastern cottontail and swamp rabbit. Multiplies this species' population, on top of Wildlife density. Already the most limited species here: the map has habitat for about a quarter of a true cottontail population, so raising this may do less than you expect.",
+    "Sandbox_KnoxWildlife_RabbitGroupSize": "Rabbits: animals per group",
+    "Sandbox_KnoxWildlife_RabbitGroupSize_tooltip": "Multiplies the size of each rabbit group, on top of Group size. This does NOT change how many rabbits exist: the group count is divided to match.",
+
+    "Sandbox_KnoxWildlife_WildTurkey": "Turkeys: add them to the world",
+    "Sandbox_KnoxWildlife_WildTurkey_tooltip": "Adds wild turkey flocks. Kentucky's turkey restoration was at its peak in 1993, so flocks were common and growing fast. Uses the turkey models already in the game.",
+    "Sandbox_KnoxWildlife_TurkeyRoutes": "Turkeys: number of groups",
+    "Sandbox_KnoxWildlife_TurkeyRoutes_tooltip": "Eastern wild turkey. Multiplies this species' population, on top of Wildlife density. Genuinely scarce in 1993, so they sit on a minimum floor rather than their true density, which would be about ten flocks for the whole map. Does nothing unless turkeys are turned on above.",
+    "Sandbox_KnoxWildlife_TurkeyGroupSize": "Turkeys: animals per group",
+    "Sandbox_KnoxWildlife_TurkeyGroupSize_tooltip": "Multiplies the size of each turkey flock, on top of Group size. This does NOT change how many turkeys exist: the flock count is divided to match.",
+
+    "Sandbox_KnoxWildlife_WildRaccoon": "Raccoons: add them to the world",
+    "Sandbox_KnoxWildlife_WildRaccoon_tooltip": "Lets raccoons appear in the world instead of only in traps. The game already ships a complete raccoon; it is simply never spawned.",
+    "Sandbox_KnoxWildlife_RaccoonRoutes": "Raccoons: number of groups",
+    "Sandbox_KnoxWildlife_RaccoonRoutes_tooltip": "Raccoons, in bottomland and along water, and abundant. Multiplies this species' population, on top of Wildlife density. Realistic is roughly 890 across the map. Does nothing unless raccoons are turned on above.",
+    "Sandbox_KnoxWildlife_RaccoonGroupSize": "Raccoons: animals per group",
+    "Sandbox_KnoxWildlife_RaccoonGroupSize_tooltip": "Multiplies the size of each raccoon group, on top of Group size. This does NOT change how many raccoons exist: the group count is divided to match."
+}
