@@ -1,8 +1,8 @@
 {
-    "Sandbox_KnoxWildlife": "Knox Wildlife",
+    "Sandbox_KnoxLife": "KnoxLife",
     "Sandbox_KnoxLife_tooltip": "Wild animal spawning tuned to 1990s rural Kentucky: many small family groups spread across the map instead of a few enormous herds.",
-    "Sandbox_KnoxWildlifeAnimals": "Knox Wildlife: Animals",
-    "Sandbox_KnoxWildlifeAnimals_tooltip": "Per-species settings. Each animal has its own target, so turning one off or doubling it does not take anything from the others. Add-on species appear here too.",
+    "Sandbox_KnoxLifeAnimals": "KnoxLife: Animals",
+    "Sandbox_KnoxLifeAnimals_tooltip": "Per-species settings. Each animal has its own target, so turning one off or doubling it does not take anything from the others. Add-on species appear here too.",
     "Sandbox_KnoxLife_RouteDensity": "Wildlife density",
     "Sandbox_KnoxLife_RouteDensity_tooltip": "The master dial for how many animals exist. Realistic places each species at its actual recorded 1990s Kentucky density, so deer, turkey and raccoon reach their true numbers. Rabbits and squirrels are the exception and stay below theirs, because the map has nowhere near enough of the habitat they need. Only takes effect on a new save.",
     "Sandbox_KnoxLife_RouteDensity_option1": "1/4 realistic",

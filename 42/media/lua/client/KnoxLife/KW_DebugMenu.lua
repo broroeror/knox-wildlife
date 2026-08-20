@@ -132,10 +132,10 @@ function UI.rows()
 
     rows[#rows + 1] = { label = "Print population report to console", fn = UI.report }
 
-    if SandboxVars and SandboxVars.KnoxWildlifeOverkill then
-        local on = runtimeGet("KnoxWildlifeOverkill", "Debug", false) and true or false
+    if SandboxVars and SandboxVars.KnoxLifeOverkill then
+        local on = runtimeGet("KnoxLifeOverkill", "Debug", false) and true or false
         local function overkillLabel()
-            local v = runtimeGet("KnoxWildlifeOverkill", "Debug", false)
+            local v = runtimeGet("KnoxLifeOverkill", "Debug", false)
             return "Overkill: log every kill  [" .. (v and "ON" or "OFF") .. "]"
         end
         rows[#rows + 1] = {
@@ -145,8 +145,8 @@ function UI.rows()
             -- mid-click, which is the kind of thing that works until it does not.
             relabel = overkillLabel,
             fn = function()
-                local now = not (runtimeGet("KnoxWildlifeOverkill", "Debug", false) and true or false)
-                runtimeSet("KnoxWildlifeOverkill", "Debug", now)
+                local now = not (runtimeGet("KnoxLifeOverkill", "Debug", false) and true or false)
+                runtimeSet("KnoxLifeOverkill", "Debug", now)
                 say("Overkill kill logging " .. (now and "ON" or "OFF"))
             end }
     end
@@ -215,8 +215,8 @@ end
 -- Wrap rather than replace, so every vanilla button and any other mod's button
 -- survives. Guarded because Lua is reloaded on some transitions and a second
 -- wrap would add the entry twice.
-if not ISDebugMenu.KnoxWildlifePatched then
-    ISDebugMenu.KnoxWildlifePatched = true
+if not ISDebugMenu.KnoxLifePatched then
+    ISDebugMenu.KnoxLifePatched = true
     local original = ISDebugMenu.setupButtons
     function ISDebugMenu:setupButtons()
         original(self)

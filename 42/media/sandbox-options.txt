@@ -5,7 +5,7 @@ option KnoxLife.RouteDensity
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlife,
+    page = KnoxLife,
     translation = KnoxLife_RouteDensity,
     valueTranslation = KnoxLife_RouteDensity,
 }
@@ -14,7 +14,7 @@ option KnoxLife.SpeciesMix
     type = enum,
     numValues = 3,
     default = 1,
-    page = KnoxWildlife,
+    page = KnoxLife,
     translation = KnoxLife_SpeciesMix,
     valueTranslation = KnoxLife_SpeciesMix,
 }
@@ -23,7 +23,7 @@ option KnoxLife.GroupSize
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlife,
+    page = KnoxLife,
     translation = KnoxLife_GroupSize,
     valueTranslation = KnoxLife_GroupSize,
 }
@@ -31,7 +31,7 @@ option KnoxLife.WildlifeRecovery
 {
     type = boolean,
     default = true,
-    page = KnoxWildlife,
+    page = KnoxLife,
     translation = KnoxLife_WildlifeRecovery,
 }
 option KnoxLife.RecoveryRate
@@ -39,7 +39,7 @@ option KnoxLife.RecoveryRate
     type = enum,
     numValues = 3,
     default = 2,
-    page = KnoxWildlife,
+    page = KnoxLife,
     translation = KnoxLife_RecoveryRate,
     valueTranslation = KnoxLife_RecoveryRate,
 }
@@ -47,14 +47,14 @@ option KnoxLife.RebalanceFarms
 {
     type = boolean,
     default = true,
-    page = KnoxWildlife,
+    page = KnoxLife,
     translation = KnoxLife_RebalanceFarms,
 }
 option KnoxLife.AdminTools
 {
     type = boolean,
     default = true,
-    page = KnoxWildlife,
+    page = KnoxLife,
     translation = KnoxLife_AdminTools,
 }
 option KnoxLife.DeerRoutes
@@ -62,7 +62,7 @@ option KnoxLife.DeerRoutes
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_DeerRoutes,
     valueTranslation = KnoxLife_SpeciesScale,
 }
@@ -71,7 +71,7 @@ option KnoxLife.DeerGroupSize
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_DeerGroupSize,
     valueTranslation = KnoxLife_SpeciesScale,
 }
@@ -80,7 +80,7 @@ option KnoxLife.RabbitRoutes
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_RabbitRoutes,
     valueTranslation = KnoxLife_SpeciesScale,
 }
@@ -89,7 +89,7 @@ option KnoxLife.RabbitGroupSize
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_RabbitGroupSize,
     valueTranslation = KnoxLife_SpeciesScale,
 }
@@ -97,7 +97,7 @@ option KnoxLife.WildTurkey
 {
     type = boolean,
     default = true,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_WildTurkey,
 }
 option KnoxLife.TurkeyRoutes
@@ -105,7 +105,7 @@ option KnoxLife.TurkeyRoutes
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_TurkeyRoutes,
     valueTranslation = KnoxLife_SpeciesScale,
 }
@@ -114,7 +114,7 @@ option KnoxLife.TurkeyGroupSize
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_TurkeyGroupSize,
     valueTranslation = KnoxLife_SpeciesScale,
 }
@@ -122,7 +122,7 @@ option KnoxLife.WildRaccoon
 {
     type = boolean,
     default = true,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_WildRaccoon,
 }
 option KnoxLife.RaccoonRoutes
@@ -130,7 +130,7 @@ option KnoxLife.RaccoonRoutes
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_RaccoonRoutes,
     valueTranslation = KnoxLife_SpeciesScale,
 }
@@ -139,7 +139,7 @@ option KnoxLife.RaccoonGroupSize
     type = enum,
     numValues = 5,
     default = 3,
-    page = KnoxWildlifeAnimals,
+    page = KnoxLifeAnimals,
     translation = KnoxLife_RaccoonGroupSize,
     valueTranslation = KnoxLife_SpeciesScale,
 }
