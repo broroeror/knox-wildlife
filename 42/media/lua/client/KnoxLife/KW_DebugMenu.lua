@@ -88,20 +88,6 @@ function UI.report()
     say(string.format("Report printed: %d species, %d routes", #plan, total))
 end
 
--- The four juvenile stage ids, in the order they read best side by side.
---
--- Juveniles are the one thing you cannot get on demand: they are rare in the
--- wild, so "go and look at a kit" is not something anyone can actually do. That
--- matters because every art change needs confirming by eye before it ships --
--- see KNOWN-GOOD.md for what happens when it is not -- and waiting for one to
--- wander past is not a confirmation step.
-local JUVENILES = {
-    { id = "kwc_foxkit",       label = "fox kit" },
-    { id = "kwc_coyotepup",    label = "coyote pup" },
-    { id = "kwc_bobcatkitten", label = "bobcat kitten" },
-    { id = "kwc_squirrelkit",  label = "squirrel kit" },
-}
-
 -- One row per thing you can do. Built fresh every time the panel opens, because
 -- route counts and the installed add-on set both change under it.
 function UI.rows()
@@ -149,33 +135,24 @@ function UI.rows()
     -- walks but can never be hurt, because only the server allocates the network
     -- id a hit packet needs. Say so rather than hiding the row: someone looking
     -- for this button needs to know it exists and why it is not here.
-    if KW.spawnOne then
+    if KW.spawnJuvenilesAt then
         if isClient and isClient() then
-            rows[#rows + 1] = { label = "Spawn the juveniles  (singleplayer only)", fn = nil }
+            -- On a server the right-click admin menu is the route -- it needs no
+            -- -debug, and it can ask the server to do the spawning, which a
+            -- client-side button structurally cannot. See KW_AdminMenu.lua.
+            rows[#rows + 1] = { label = "Juveniles: right-click the ground as admin instead",
+                                fn = nil }
         else
             rows[#rows + 1] = { label = "Spawn one of each juvenile next to me", fn = function()
                 local p = getSpecificPlayer(0)
                 if not p then return end
-                local x, y = p:getX(), p:getY()
-                local placed, missed = 0, {}
-                for i, j in ipairs(JUVENILES) do
-                    -- Two tiles apart, so all four are visible at once and can be
-                    -- compared against each other and against a nearby adult.
-                    local breed = KW.pickBreed and KW.pickBreed(j.id, nil) or nil
-                    if KW.spawnOne(j.id, breed, x + (i * 2), y) then
-                        placed = placed + 1
-                    else
-                        missed[#missed + 1] = j.label
-                    end
-                end
+                local placed, missed = KW.spawnJuvenilesAt(p:getX(), p:getY())
                 if #missed == 0 then
                     say(string.format("Spawned %d juveniles", placed))
                 else
                     say(string.format("Spawned %d, failed: %s",
                         placed, table.concat(missed, ", ")))
                 end
-                print("[KnoxLife][debug] juvenile spawn: " .. placed .. "/" ..
-                      #JUVENILES .. " placed at " .. math.floor(x) .. "," .. math.floor(y))
             end }
         end
     end
